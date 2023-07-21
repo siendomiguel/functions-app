@@ -1,8 +1,8 @@
-# This proyect is for practique of how building a server using Express with Nodejs
+# This proyect is to practique of how to build a server using Express with Nodejs
 
 My english **is not very good**. 
-Too for pratique my english.
+Also to pratique my english.
 
 > this is a blockquotes en marckdown
 >
-> This es a example 😊
+> This is a example 😊

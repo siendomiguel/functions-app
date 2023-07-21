@@ -23,8 +23,8 @@ app.get("/", (req, res) => {
 });
 
 // ========= Routes =========
-app.use("/api/v1/portfolios", portfolios);
-app.use("/api/v1/tickers", tickers);
+app.use("/api/v1", portfolios);
+app.use("/api/v1", tickers);
 
 // ========= Start server =========
 app.listen(port, () => {

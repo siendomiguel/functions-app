@@ -3,10 +3,14 @@ import tickerController from "../controller/tickerController.js";
 
 const router = express.Router();
 
-router.route("/:symbol").get(tickerController.getTickerBySymbol);
+router.route("/ticker/new").post(tickerController.newTicker);
 
-router.route("/").get(tickerController.getAllTicker);
+router
+  .route("/:symbol")
+  .get(tickerController.getTickerBySymbol)
+  .put(tickerController.putTickerBySymbol)
+  .delete(tickerController.deleteTickerBySymbol);
 
-router.route("/new").post(tickerController.newTicker);
+router.route("/tickers/all").get(tickerController.getAllTicker);
 
 export default router;
