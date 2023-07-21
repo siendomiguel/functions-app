@@ -1,4 +1,4 @@
-# This proyect is for practique of who building a server using Express with Nodejs
+# This proyect is for practique of how building a server using Express with Nodejs
 
 My english **is not very good**. 
 Too for pratique my english.
