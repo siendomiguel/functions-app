@@ -1,6 +1,34 @@
 import Ticker from "../models/modelTicker.js";
 
 export const getTickerBySymbol = async (req, res) => {
+
+  // Patrones para detectar dispositivos móviles
+  const userAgent = req.get('User-Agent');
+  const mobilePattern = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  const desktopPattern = /Windows|Macintosh|Linux/i;
+  
+  const isMobile = mobilePattern.test(userAgent);
+  const isDesktop = desktopPattern.test(userAgent);
+  
+  if (isMobile) {
+    // Obtener el sistema operativo en dispositivos móviles
+    const mobileOSPattern = /(Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini)/i;
+    const mobileOSMatch = userAgent.match(mobileOSPattern);
+    const mobileOS = mobileOSMatch ? mobileOSMatch[0] : 'Desconocido';
+  
+    console.log(`Es un dispositivo móvil con sistema operativo ${mobileOS}.`);
+  } else if (isDesktop) {
+    // Obtener el sistema operativo en equipos de escritorio
+    const desktopOSPattern = /(Windows|Macintosh|Linux)/i;
+    const desktopOSMatch = userAgent.match(desktopOSPattern);
+    const desktopOS = desktopOSMatch ? desktopOSMatch[0] : 'Desconocido';
+  
+    console.log(`Es un equipo de escritorio con sistema operativo ${desktopOS}.`);
+  } else {
+    console.log('Es un dispositivo desconocido.');
+  }
+  
+
   try {
     const symbol = req.query.symbol;
     const ticker = await Ticker.findOne({ symbol: symbol });

@@ -21,8 +21,6 @@ app.use(express.json())
 app.get("/", (req, res) => {
   res.send("API de testing para BitfinApp");
 });
-
-// ========= Routes =========
 app.use("/api/v1", portfolios);
 app.use("/api/v1", tickers);
 
